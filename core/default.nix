@@ -78,6 +78,7 @@
       zsh
       fd
       nix-update
+      git
     ];
   };
 }
