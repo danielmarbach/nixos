@@ -20,6 +20,9 @@
     initrd = {
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "usbhid" "sr_mod" ];
       kernelModules = [ "dm-snapshot" ];
+      secrets = {
+        "/crypto_keyfile.bin" = null;
+       };
     };
 
     loader = {
