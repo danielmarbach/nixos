@@ -4,7 +4,7 @@
   # Where do we get our packages:
   inputs = {
     # Main NixOS monorepo. We follow the rolling release.
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-22.11";
     nixpkgs-master.url = "nixpkgs/master";
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
@@ -66,27 +66,12 @@
     common = { pkgs, config, ... }: {
       config = {
         nix = {
-          settings = {
-            # add binary caches
-            trusted-public-keys = [
-              "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-            ];
-            substituters =
-              [ "https://cache.nixos.org" "https://nix-community.cachix.org" ];
-            };
-          };
-
           nixpkgs.overlays = [
             nur.overlay
 
             (self: super: {
               inherit (master)
-                slack
-                librewolf
-                librewolf-wayland
-                podman
-                tailscale;
+                slack;
 
               master = master;
             })
@@ -96,21 +81,11 @@
 
       wayland = { pkgs, config, ... }: {
         config = {
-          nix = {
-            settings = {
-              # add binary caches
-              trusted-public-keys = [
-                "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-              ];
-              substituters = [ "https://nixpkgs-wayland.cachix.org" ];
-            };
-          };
-
           nixpkgs.overlays = [ inputs.nixpkgs-wayland.overlay ];
         };
       };
 
-      defaultModules = [ common agenix.nixosModules.age ./lib/matrix-appservices ] ++ home;
+      defaultModules = [ common ] ++ home;
   in {
     nixosConfigurations = {
 
@@ -118,16 +93,6 @@
       x1carbon = nixpkgs.lib.nixosSystem {
         system = system;
         modules = [ ./hosts/x1carbon.nix wayland ] ++ defaultModules;
-        specialArgs = {
-          inherit inputs;
-          inherit home-manager;
-        };
-      };
-
-      # Boxer
-      boxer = nixpkgs.lib.nixosSystem {
-        system = system;
-        modules = [ ./hosts/boxer.nix wayland] ++ defaultModules;
         specialArgs = {
           inherit inputs;
           inherit home-manager;
