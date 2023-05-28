@@ -1,0 +1,6 @@
+{ pkgs, ... }: rec {
+  xdg = {
+    configFile = {
+    };
+  };
+}
