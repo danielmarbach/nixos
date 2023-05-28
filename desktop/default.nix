@@ -23,20 +23,9 @@
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
-      wlr.enable = true;
-      xdgOpenUsePortal = true;
-    };
-  };
- 
- services = {
+  services = {
   xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "intl";
     displayManager = {

@@ -1,22 +1,4 @@
 { config, lib, pkgs, ... }: {
-  services = {
-    tlp = {
-      enable = true;
-      settings = {
-        TLP_ENABLE = 1;
-        START_CHARGE_THRESH_BAT0 = 75;
-        STOP_CHARGE_THRESH_BAT0 = 80;
-        START_CHARGE_THRESH_BAT1 = 75;
-        STOP_CHARGE_THRESH_BAT1 = 80;
-        RESTORE_THRESHOLDS_ON_BAT = 1;
-        CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
-        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
-        DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
-        DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
-        PCIE_ASPM_ON_BAT = "powersupersave";
-      };
-    };
-  };
 
   boot = {
     kernelParams = [ "mem_sleep_default=deep" "pcie_aspm=force" ];

@@ -3,6 +3,7 @@
 {
   security.rtkit.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.pulseaudio.enable = false;
   sound.enable = true;
 
   environment.systemPackages = with pkgs; [
