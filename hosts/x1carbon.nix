@@ -10,7 +10,6 @@
   ];
 
   virtualisation.libvirtd.enable = true;
-  time.timeZone = "Europe/Zurich";
 
   environment.systemPackages = with pkgs; [ virt-manager ];
 
