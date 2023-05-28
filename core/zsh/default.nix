@@ -19,7 +19,7 @@
         enable = true;
         plugins = [
             "git"
-            zsh-autosuggestions"
+            "zsh-autosuggestions"
         ];
         theme = "robbyrussell";
       };
