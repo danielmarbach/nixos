@@ -14,7 +14,7 @@
       url = "github:nix-community/NUR";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware = {
@@ -58,34 +58,12 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.pimeys = lib.mkMerge [ ./dotfiles ];
+          users.danielmarbach = lib.mkMerge [ ./dotfiles ];
         };
       }
     ];
 
-    common = { pkgs, config, ... }: {
-      config = {
-        nix = {
-          nixpkgs.overlays = [
-            nur.overlay
-
-            (self: super: {
-              inherit (master)
-                slack;
-
-              master = master;
-            })
-          ];
-        };
-      };
-
-      wayland = { pkgs, config, ... }: {
-        config = {
-          nixpkgs.overlays = [ inputs.nixpkgs-wayland.overlay ];
-        };
-      };
-
-      defaultModules = [ common ] ++ home;
+      defaultModules = [ ] ++ home;
   in {
     nixosConfigurations = {
 
