@@ -70,7 +70,7 @@
       # ThinkPad X1 Carbon
       x1carbon = nixpkgs.lib.nixosSystem {
         system = system;
-        modules = [ ./hosts/x1carbon.nix wayland ] ++ defaultModules;
+        modules = [ ./hosts/x1carbon.nix ] ++ defaultModules;
         specialArgs = {
           inherit inputs;
           inherit home-manager;
