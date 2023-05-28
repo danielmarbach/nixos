@@ -3,6 +3,7 @@
 {
   imports = [
     ./zsh
+    ./git
   ];
 
   services = {
