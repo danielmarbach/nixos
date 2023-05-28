@@ -84,7 +84,7 @@
       lm_sensors
       linux-pam
       appimage-run
-      kepassxc
+      keepassxc
       linuxPackages.perf
     ];
   };
