@@ -11,7 +11,6 @@
   };
   home-manager.users.danielmarbach.programs.zsh = {
     enable = true;
-    syntaxHighlighting.enable = true;
     enableCompletion = true;
 
     oh-my-zsh = {
