@@ -12,13 +12,6 @@
       XDG_SESSION_TYPE = "wayland";
       XDG_DATA_DIRS = with pkgs; "${pkgs.gnome.adwaita-icon-theme}/share:$XDG_DATA_DIRS";
     };
-
-    services = {
-      mako = {
-        enable = true;
-        anchor = "top-right";
-      };
-    };
   };
 
   programs = {
