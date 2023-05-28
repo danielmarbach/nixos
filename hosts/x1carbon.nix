@@ -26,14 +26,11 @@
     };
 
     loader = {
-      grub = {
+      systemd-boot = {
         enable = true;
-        version = 2;
-        device = "nodev";
-        efiSupport = true;
-        configurationLimit = 10;
       };
       efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/efi";
     };
   };
 
