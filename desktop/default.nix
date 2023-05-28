@@ -19,6 +19,9 @@
   };
 
   services.fwupd = { enable = true; };
+  
+  time.timeZone = "Europe/Zurich";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   xdg = {
     portal = {
@@ -34,6 +37,8 @@
  
  services = {
   xserver = {
+    layout = "us";
+    xkbVariant = "intl";
     displayManager = {
       gdm = {
         enable = true;
