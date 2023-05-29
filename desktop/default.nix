@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   imports = [
     ./pipewire
+    ./vscode
+    ./firefox
   ];
 
   home-manager.users.root.home.stateVersion = "22.11";
@@ -26,8 +28,9 @@
   services = {
   xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "intl";
+    layout = "us,de";
+    xkbVariant = "intl,";
+    xkbOptions = "grp:win_space_toggle";
     displayManager = {
       gdm = {
         enable = true;
@@ -94,6 +97,7 @@
       linux-pam
       appimage-run
       keepassxc
+      firefox
       linuxPackages.perf
     ];
   };
