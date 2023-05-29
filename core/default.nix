@@ -49,7 +49,7 @@
 
   users.users = {
     danielmarbach = {
-      description = "The primary user account";
+      description = "Daniel Marbach";
       isNormalUser = true;
       shell = pkgs.zsh;
       uid = 1000;

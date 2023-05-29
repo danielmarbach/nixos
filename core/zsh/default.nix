@@ -1,7 +1,3 @@
-#
-# Shell
-#
-
 { lib, home-manager, pkgs, ... }:
 {
   programs = {
